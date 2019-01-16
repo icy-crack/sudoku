@@ -66,12 +66,21 @@ import './style.css';
     eleItem.forEach(item => {
         item.addEventListener('focus', (event) => {
             item.addEventListener('keydown', (e) => {
-                if (e.keyCode > 48 && e.keyCode < 58) {
+                let keyCode = e.keyCode;
+                if (keyCode > 48 && keyCode < 58) {
                     // 1 ~ 9
                     item.innerText = e.key;
                     item.setAttribute('data-value', e.key);
-                }
+                } else if (keyCode == 8 || keyCode == 127) {
+                    // 删除
+                    item.innerText = '';
+                    item.setAttribute('data-value', '');
+                } 
             })  
         });
+        item.addEventListener('blur', () => {
+            // 解除事件绑定
+            item.removeEventListener('keydown');
+        })
     })
 })();

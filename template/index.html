@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sudoku</title>
+    <style>
+        .btn-ramdon {
+            margin-left: 20px;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+        }
+        /* .stroke {
+            stroke-dasharray: 265;
+            stroke-dashoffset: -265;
+            transition: stroke-dashoffset ease-in 0.2s;
+        }
+        .stroke:hover {
+            stroke-dashoffset: 0;
+        } */
+    </style>
 </head>
 <body>
     <div id="app"></div>
@@ -20,7 +39,66 @@
             <li class="num">8</li>
             <li class="num">9</li>
         </ul>
+
+        <div>
+            <button class="btn-ramdon">随机</button>
+        </div>
+        <svg width="500" height="500" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="f1" dx="-10" dy="-10" width="200%" height="200%">
+                    <feOffset result="offOut" in="SourceGraphic" dx="10" dy="10" />
+                    <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+                </filter>
+            </defs>
+            <circle cx="200" cy="200" r="100" stroke="#F4F5F6" stroke-width="6" fill="transparent" />
+            <circle cx="200" cy="200" r="75" stroke="#F4F5F6" stroke-width="2" fill="transparent" />
+            <circle cx="200" cy="200" r="50" stroke="#F4F5F6" stroke-width="1" fill="transparent" />
+            <circle cx="200" cy="200" r="25" stroke="#F4F5F6" stroke-width="1" fill="transparent" />
+            <line x1="200" x2="200" y1="200" y2="300" stroke="#F4F5F6" stroke-width="1"></line>
+            <line x1="200" x2="115" y1="200" y2="150" stroke="#F4F5F6" stroke-width="1"></line>
+            <line x1="200" x2="285" y1="200" y2="150" stroke="#F4F5F6" stroke-width="1"></line>
+            <circle cx="200" cy="300" r="8" fill="#F4F5F6"/>
+            <circle cx="115" cy="150" r="8" fill="#F4F5F6"/>
+            <circle cx="285" cy="150" r="8" fill="#F4F5F6"/>
+            <polygon class="stroke" points="200 200" stroke="#5FCF9D" stroke-linejoin="miter" fill="#5FCF9D" fill-opacity="0.1" filter="url(#f1)" stroke-width="5"/>
+        </svg>
     </div>
+    <script>
+        let btnRandom = document.querySelector('.btn-ramdon');
+        // let coord = [[0, 20], [68, -40], [-43, -25]]; // 相对于原点
+        let r = 100;
+        let coord = [];
+        btnRandom.addEventListener('click', function() {
+            coord = [];
+            let dot1 = Math.floor(Math.random() * r);
+            let dot2 = Math.floor(Math.random() * r);
+            let dot3 = Math.floor(Math.random() * r);
+            coord.push([0, dot1]);
+            coord.push([dot2 / 2 * 1.732, -dot2 / 2]);
+            coord.push([-dot2 / 2 * 1.732, -dot2 / 2]);
+            drawTrangle();
+        });
+        function drawTrangle () {
+            let start = null;
+            let duration = 300;
+            let stroke = document.querySelector('.stroke');
+            function draw (timestamp) {
+                if (!start) start = timestamp;
+                let radio = (timestamp - start) / duration;
+                if (radio <= 1) {
+                    let path = '';
+                    coord.forEach(item => {
+                        path += Math.floor(item[0] * radio) + 200 + ' ';
+                        path += Math.floor(item[1] * radio) + 200 + ' ';
+                    });
+                    stroke.setAttribute('points', path);
+                    window.requestAnimationFrame(draw);
+                }
+            }
+            window.requestAnimationFrame(draw);
+        }
+    </script>
     <script src="/static/bundle.js"></script>
 </body>
 </html>
