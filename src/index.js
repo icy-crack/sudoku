@@ -80,7 +80,6 @@ import './style.css';
         });
         item.addEventListener('blur', () => {
             // 解除事件绑定
-            item.removeEventListener('keydown');
         })
     })
 })();
