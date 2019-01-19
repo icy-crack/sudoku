@@ -70,44 +70,44 @@
             <li class="num">8</li>
             <li class="num">9</li>
         </ul>
-
-        <div class="range-slider">
-            <div class="range-slider__bars">
-                <div class="range-slider__bar active" data-no="1"></div>
-                <div class="range-slider__bar" data-no="2"></div>
-                <div class="range-slider__bar" data-no="3"></div>
-                <div class="range-slider__bar" data-no="4"></div>
-                <div class="range-slider__bar" data-no="5"></div>
-                <div class="range-slider__bar" data-no="6"></div>
-            </div>
-            <input class="range-slider__range" type="range" step="1" min="1" max="6" value="1">
+        <button class="tool-btn btn-check">检查</button>
+        <button class="tool-btn btn-submit">提交</button>
+    </div>
+    <div class="range-slider">
+        <div class="range-slider__bars">
+            <div class="range-slider__bar active" data-no="1"></div>
+            <div class="range-slider__bar" data-no="2"></div>
+            <div class="range-slider__bar" data-no="3"></div>
+            <div class="range-slider__bar" data-no="4"></div>
+            <div class="range-slider__bar" data-no="5"></div>
+            <div class="range-slider__bar" data-no="6"></div>
         </div>
-        <div style="margin-top: 30px;">
-            <button class="btn-ramdon">随机</button>
-        </div>
-        <div class="radar" style="margin: 20px;">
-            <svg width="220" height="220" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <filter id="f1" dx="-10" dy="-10" width="200%" height="200%">
-                        <feOffset result="offOut" in="SourceGraphic" dx="10" dy="10" />
-                        <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
-                        <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-                    </filter>
-                </defs>
-                <circle cx="110" cy="110" r="100" stroke="#F4F5F6" stroke-width="6" fill="transparent" />
-                <circle cx="110" cy="110" r="75" stroke="#F4F5F6" stroke-width="2" fill="transparent" />
-                <circle cx="110" cy="110" r="50" stroke="#F4F5F6" stroke-width="1" fill="transparent" />
-                <circle cx="110" cy="110" r="25" stroke="#F4F5F6" stroke-width="1" fill="transparent" />
-                <line x1="110" x2="110" y1="110" y2="300" stroke="#F4F5F6" stroke-width="1"></line>
-                <line x1="110" x2="25" y1="110" y2="60" stroke="#F4F5F6" stroke-width="1"></line>
-                <line x1="110" x2="195" y1="110" y2="60" stroke="#F4F5F6" stroke-width="1"></line>
-                <circle cx="110" cy="210" r="8" fill="#F4F5F6"/>
-                <circle cx="25" cy="60" r="8" fill="#F4F5F6"/>
-                <circle cx="195" cy="60" r="8" fill="#F4F5F6"/>
-                <polygon class="stroke" points="110 110" stroke="#5FCF9D" stroke-linejoin="miter" fill="#5FCF9D" fill-opacity="0.1" filter="url(#f1)" stroke-width="5"/>
-            </svg>
-        </div>
-        
+        <input class="range-slider__range" type="range" step="1" min="1" max="6" value="1">
+    </div>
+    <div style="margin-top: 30px;">
+        <button class="btn-ramdon">随机</button>
+    </div>
+    <div class="radar" style="margin: 20px;">
+        <svg width="220" height="220" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="f1" dx="-10" dy="-10" width="200%" height="200%">
+                    <feOffset result="offOut" in="SourceGraphic" dx="10" dy="10" />
+                    <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+                </filter>
+            </defs>
+            <circle cx="110" cy="110" r="100" stroke="#F4F5F6" stroke-width="6" fill="transparent" />
+            <circle cx="110" cy="110" r="75" stroke="#F4F5F6" stroke-width="2" fill="transparent" />
+            <circle cx="110" cy="110" r="50" stroke="#F4F5F6" stroke-width="1" fill="transparent" />
+            <circle cx="110" cy="110" r="25" stroke="#F4F5F6" stroke-width="1" fill="transparent" />
+            <line x1="110" x2="110" y1="110" y2="300" stroke="#F4F5F6" stroke-width="1"></line>
+            <line x1="110" x2="25" y1="110" y2="60" stroke="#F4F5F6" stroke-width="1"></line>
+            <line x1="110" x2="195" y1="110" y2="60" stroke="#F4F5F6" stroke-width="1"></line>
+            <circle cx="110" cy="210" r="8" fill="#F4F5F6"/>
+            <circle cx="25" cy="60" r="8" fill="#F4F5F6"/>
+            <circle cx="195" cy="60" r="8" fill="#F4F5F6"/>
+            <polygon class="stroke" points="110 110" stroke="#5FCF9D" stroke-linejoin="miter" fill="#5FCF9D" fill-opacity="0.1" filter="url(#f1)" stroke-width="5"/>
+        </svg>
     </div>
     <script>
         let btnRandom = document.querySelector('.btn-ramdon');
