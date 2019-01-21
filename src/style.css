@@ -6,7 +6,15 @@
 
 html {
     font-size: 12px;
-    color: #222;
+    color: #fff;
+}
+
+body {
+    background: #191a1d;
+}
+
+.hide {
+    display: none;
 }
 
 #app {
@@ -14,49 +22,50 @@ html {
     display: inline-block;
     box-sizing: content-box;
     width: 315px;
-    border: 1px solid #222;
+    border: 1px solid #676767;
     border-right: none;
     border-bottom: none;
+    background: radial-gradient(circle farthest-corner at 200px 0, #434752, #000);
 }
 
 .line:nth-of-type(3n) {
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #676767;
 }
 
 .item:nth-last-of-type(3n + 1) {
-    border-right: 2px solid #222;
+    border-right: 2px solid #676767;
 }
 
 .line:first-of-type {
-    border-top: 1px solid #222;
+    border-top: 1px solid #676767;
 }
 
 .item {
     position: relative;
     vertical-align: bottom;
     display: inline-block;
-    border-right: 1px solid #222;
-    border-bottom: 1px solid #222;
+    border-right: 1px solid #676767;
+    border-bottom: 1px solid #676767;
     width: 35px;
     height: 35px;
     line-height: 35px;
     text-align: center;
     font-weight: bold;
-    background: rgba(250, 249, 232, 1);
+    background: rgba(250, 249, 232, 0.1);
 }
 
 .item:focus {
-    background: rgba(237, 243, 250, 1);
+    background: rgba(237, 243, 250, 0.1);
     /* outline: none; */
 }
 
 .item.static {
     font-weight: normal;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .item.invalid {
-    background: rgba(241, 124, 103, 0.8);
+    background: rgba(255, 221, 64, 0.9);
     color: #fff;
     animation: twinkle 0.5s;
 }
@@ -87,13 +96,17 @@ html {
     display: block;
     width: 35px;
     height: 35px;
-    border: 2px solid salmon;
+    border: 2px solid #ffdd40;
     box-sizing: border-box;
+}
+
+.tools {
+    margin: 20px;
 }
 
 .tool-nums {
     display: block;
-    margin: 20px;
+    margin: 20px 0;
 }
 
 .tool-nums .num {
@@ -103,7 +116,7 @@ html {
     width: 30px;
     height: 30px;
     border-radius: 3px;
-    background: rgba(145, 196, 210, 0.7);
+    background: #36383f;
     line-height: 30px;
     text-align: center;
     display: inline-block;
@@ -119,23 +132,39 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 2px solid #db7663;
+    border: 2px solid #ffdd40;
     border-radius: 3px;
     box-sizing: border-box;
 }
 
 .tool-btn {
+    box-sizing: content-box;
     width: 50px;
     height: 35px;
-    line-height: 35px;
     text-align: center;
     font-size: 14px;
     color: #fff;
-    background: #f17c67;
     font-weight: bold;
     border-radius: 8px;
     border: none;
     outline: none;
     cursor: pointer;
     margin-right: 15px;
+    border: 3px solid #c5c8d4;
+    background: transparent;
+    vertical-align: bottom;
+}
+.tool-btn.pressed {
+    color: #222;
+    background: #fff;
+    border: none;
+    height: 41px;
+    width: 56px;
+    line-height: 41px;
+}
+.tool-btn:hover {
+    background: #000;
+}
+.tool-btn.pressed:hover {
+    background: #fff;
 }
