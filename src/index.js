@@ -100,7 +100,6 @@ import './style.css';
             });
             arr.push(data);
         });
-        console.log(arr);
         return arr;
     }
     // 计算所有 填写单元格 的可填数字
@@ -110,7 +109,6 @@ import './style.css';
             let line = item.dataset.line;
             let col = item.dataset.col;
             let data = getValidNum(matrix, line, col);
-            console.log(data);
             item.setAttribute('data-valid', data.join(','));
         });
     }
